@@ -15,3 +15,18 @@ SELECT * FROM animals WHERE neutered=true;
 SELECT * FROM animals WHERE NOT name='Gabumon';
 
 SELECT * FROM animals WHERE weight_kg BETWEEN 10.4 AND 17.3;
+
+SELECT COUNT(name) FROM animals;
+
+SELECT COUNT(name) FROM animals WHERE escape_attempts = 0;
+
+SELECT AVG(weight_kg) FROM animals;
+
+SELECT neutered, SUM(escape_attempts)
+  FROM animals
+  GROUP BY neutered;
+
+SELECT species, MAX(weight_kg), MIN(weight_kg)
+  FROM animals
+  GROUP BY species;
+
