@@ -30,3 +30,45 @@ SELECT species, MAX(weight_kg), MIN(weight_kg)
   FROM animals
   GROUP BY species;
 
+
+SELECT name, full_name
+FROM animals
+INNER JOIN owners 
+    ON animals.owner_id = owners.id
+WHERE owners.id = 4;
+
+SELECT animals.name AS animal, species.name AS specie
+FROM animals
+INNER JOIN species 
+    ON species_id = species.id 
+WHERE species.id = 1;
+
+SELECT animals.name AS animal, owners.full_name AS owner_name
+FROM animals
+RIGHT JOIN owners 
+    ON owner_id = owners.id;
+
+SELECT COUNT(animals.species_id), species.name
+FROM animals
+RIGHT JOIN species 
+    ON species_id = species.id
+GROUP BY species.name;
+
+SELECT name, full_name
+FROM animals
+INNER JOIN owners 
+    ON animals.owner_id = owners.id
+WHERE owners.id = 2 AND species_id = 2;
+
+SELECT name, full_name
+FROM animals
+INNER JOIN owners 
+    ON animals.owner_id = owners.id
+WHERE owners.id = 5 AND escape_attempts = 0;
+
+SELECT COUNT(owner_id) AS number_animals, owners.full_name
+FROM animals
+INNER JOIN owners 
+    ON animals.owner_id = owners.id
+GROUP BY full_name
+ORDER BY COUNT(owner_id) DESC;
