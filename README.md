@@ -1,3 +1,5 @@
+![Schema vet clinic database](Schema/schema.png)
+
 # Description
 
 This is a project to create a relational database using PostgreSQL for a Vet Clinic
